@@ -21,7 +21,7 @@ WITH source AS (
         ,NULLIF(sc.JobStatus, '') AS job_status
         ,NULLIF(sc.Notes, '') AS notes
 
-        ,CAST(sc.Sublevel AS INT) AS sublevel
+        ,TRY_CAST(sc.Sublevel AS INT) AS sublevel
         ,CAST(sc.IsActive AS BOOLEAN) AS is_active
 
         ,CASE WHEN sc.CustomerTypeRef_FullName = '' THEN 'Unassigned' ELSE sc.CustomerTypeRef_FullName END AS customer_type

@@ -5,7 +5,7 @@ WITH source AS (
         ,sct.Name AS customer_type
         ,sct.FullName AS customer_type_full
 
-        ,CAST(sct.Sublevel AS INT) AS sublevel
+        ,TRY_CAST(sct.Sublevel AS INT) AS sublevel
         ,CAST(sct.IsActive AS BOOLEAN) AS is_active
 
         ,NULLIF(sct.EditSequence, '') AS edit_sequence

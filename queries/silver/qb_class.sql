@@ -4,7 +4,7 @@ WITH source AS (
         ,sc.Name AS class_name
         ,sc.FullName AS full_class_name
         ,CAST(sc.IsActive AS BOOLEAN) AS is_active
-        ,CAST(sc.Sublevel AS INT) AS sublevel
+        ,TRY_CAST(sc.Sublevel AS INT) AS sublevel
         ,NULLIF(sc.EditSequence, '') AS edit_sequence
         ,CAST(sc.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sc.TimeModified AS TIMESTAMP) AS last_modified_datetime

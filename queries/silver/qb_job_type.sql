@@ -4,7 +4,7 @@ WITH source AS (
         ,sjt.Name AS job_type_name
         ,sjt.FullName AS job_type_full_name
         ,CAST(sjt.IsActive AS BOOLEAN) AS is_active
-        ,sjt.Sublevel AS sublevel
+        ,TRY_CAST(sjt.Sublevel AS INT) AS sublevel
 
         ,NULLIF(sjt.EditSequence, '') AS edit_sequence
         ,CAST(sjt.TimeCreated AS TIMESTAMP) AS created_datetime

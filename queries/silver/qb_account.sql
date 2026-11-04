@@ -10,7 +10,7 @@ WITH source AS (
         ,TRIM(REGEXP_REPLACE(sa.AccountType, '([A-Z])', ' $1')) AS account_type
         ,NULLIF(sa.Desc, '') AS account_description
         ,NULLIF(sa.CashFlowClassification, '') AS cash_flow_classification
-        ,CAST(sa.Sublevel AS INT) AS sublevel
+        ,TRY_CAST(sa.Sublevel AS INT) AS sublevel
         ,CAST(sa.IsActive AS BOOLEAN) AS is_active
         ,CASE
             WHEN LEFT(TRY_CAST(sa.AccountNumber AS INT), 1) <= 3
