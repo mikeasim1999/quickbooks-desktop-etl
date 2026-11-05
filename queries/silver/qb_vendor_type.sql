@@ -7,7 +7,7 @@ WITH source AS (
 
         ,CAST(svt.IsActive AS BOOLEAN) AS is_active
 
-        ,TRY_CAST(svt.Sublevel AS INT) AS sublevel
+        ,svt.Sublevel AS sublevel
 
         ,NULLIF(svt.EditSequence, '') AS edit_sequence
         ,CAST(svt.TimeCreated AS TIMESTAMP) AS created_datetime
