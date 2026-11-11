@@ -28,6 +28,6 @@ FROM {CATALOG}.{SOURCE_SCHEMA}.qb_receive_payment_lines AS srpl
 -- << INCREMENTAL >> --
 WHERE srpl.TxnID IN (
     SELECT TxnID
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_receive_payment
-    WHERE CAST(TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_receive_payment AS rp
+    WHERE CAST(rp.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
 )

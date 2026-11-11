@@ -6,7 +6,6 @@ WITH source AS (
         ,CAST(sifa.PurchaseDate AS DATE) AS purchase_date
 
         ,sifa.Name AS item_fixed_asset_name
-        ,sifa.FullName AS item_fixed_asset_full_name
 
         ,CAST(sifa.IsActive AS BOOLEAN) AS is_active
 
@@ -30,14 +29,23 @@ WITH source AS (
     UNION ALL
 
     SELECT
-        '0', '0',
+        '0', 
+        '0',
         NULL,
-        'Unassigned', 'Unassigned',
+        'Unassigned', 
         TRUE,
-        NULL, NULL, NULL,
-        CAST(0 AS DECIMAL(12, 4)), CAST(0 AS DECIMAL(12, 4)), CAST(0 AS DECIMAL(12, 4)), CAST(0 AS DECIMAL(12, 4)),
+        NULL, 
+        NULL, 
+        NULL,
+        CAST(0 AS DECIMAL(12, 4)), 
+        CAST(0 AS DECIMAL(12, 4)), 
+        CAST(0 AS DECIMAL(12, 4)), 
+        CAST(0 AS DECIMAL(12, 4)),
         'Unassigned',
-        NULL, NULL, NULL, NULL
+        NULL, 
+        NULL, 
+        NULL, 
+        NULL
 )
 SELECT src.*
 FROM source AS src

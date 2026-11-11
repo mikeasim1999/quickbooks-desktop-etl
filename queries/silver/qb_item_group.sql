@@ -4,7 +4,6 @@ WITH source AS (
         ,CASE WHEN sig.ItemGroupLine_ItemRef_ListID = '' THEN '0' ELSE sig.ItemGroupLine_ItemRef_ListID END AS item_id
 
         ,sig.Name AS item_group_name
-        ,sig.FullName AS item_group_full_name
 
         ,CAST(sig.IsActive AS BOOLEAN) AS is_active
         ,CASE WHEN sig.IsPrintItemsInGroup = '' THEN FALSE ELSE CAST(sig.IsPrintItemsInGroup AS BOOLEAN) END AS is_print_items_in_group
@@ -27,7 +26,6 @@ WITH source AS (
         '0', 
         '0',
         'Unassigned', 
-        'Unassigned',
         TRUE, 
         FALSE,
         NULL,

@@ -3,7 +3,6 @@ WITH source AS (
         sis.ListID AS item_subtotal_id
 
         ,sis.Name AS item_subtotal_name
-        ,sis.FullName AS item_subtotal_full_name
         ,NULLIF(sis.ItemDesc, '') AS item_description
 
         ,CAST(sis.IsActive AS BOOLEAN) AS is_active
@@ -19,9 +18,14 @@ WITH source AS (
 
     SELECT
         '0',
-        'Unassigned', 'Unassigned', NULL,
-        TRUE, NULL,
-        NULL, NULL, NULL, NULL
+        'Unassigned', 
+        'Unassigned', 
+        TRUE, 
+        NULL,
+        NULL, 
+        NULL, 
+        NULL, 
+        NULL
 )
 SELECT src.*
 FROM source AS src

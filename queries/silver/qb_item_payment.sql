@@ -5,7 +5,6 @@ WITH source AS (
         ,CASE WHEN sip.PaymentMethodRef_ListID = '' THEN '0' ELSE sip.PaymentMethodRef_ListID END AS payment_method_id
 
         ,sip.Name AS item_payment_name
-        ,sip.FullName AS item_payment_full_name
 
         ,CAST(sip.IsActive AS BOOLEAN) AS is_active
 
@@ -21,11 +20,17 @@ WITH source AS (
     UNION ALL
 
     SELECT
-        '0', '0', '0',
-        'Unassigned', 'Unassigned',
+        '0', 
+        '0', 
+        '0',
+        'Unassigned', 
         TRUE,
-        'Unassigned', 'Unassigned',
-        NULL, NULL, NULL, NULL
+        'Unassigned', 
+        'Unassigned',
+        NULL, 
+        NULL, 
+        NULL, 
+        NULL
 )
 SELECT src.*
 FROM source AS src

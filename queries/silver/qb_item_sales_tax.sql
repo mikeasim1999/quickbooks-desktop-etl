@@ -4,7 +4,7 @@ WITH source AS (
         ,CASE WHEN sist.TaxVendorRef_ListID = '' THEN '0' ELSE sist.TaxVendorRef_ListID END AS vendor_id
 
         ,sist.Name AS item_sales_tax_name
-        ,sist.FullName AS item_sales_tax_full_name
+        
         ,NULLIF(sist.ItemDesc, '') AS item_description
 
         ,CAST(sist.IsActive AS BOOLEAN) AS is_active
@@ -22,12 +22,17 @@ WITH source AS (
     UNION ALL
 
     SELECT
-        '0', '0',
-        'Unassigned', 'Unassigned', NULL,
+        '0', 
+        '0',
+        'Unassigned', 
+        NULL,
         TRUE,
         'Unassigned',
         CAST(0 AS DECIMAL(12, 4)),
-        NULL, NULL, NULL, NULL
+        NULL, 
+        NULL, 
+        NULL, 
+        NULL
 )
 SELECT src.*
 FROM source AS src
