@@ -1,5 +1,5 @@
 SELECT *, NOW() AS LoadDatetime
-FROM {SOURCE_SCHEMA}.itemservice as is
+FROM {SOURCE_SCHEMA}.itemservice as sis
 -- << INCREMENTAL >> --
 WHERE
-    CAST(is.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}' -- updated records
+    CAST(sis.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}' -- updated records
