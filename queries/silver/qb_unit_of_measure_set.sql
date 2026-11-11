@@ -35,10 +35,5 @@ WITH source AS (
 SELECT src.*
 FROM source AS src
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_unit_of_measure_set AS tum
-    ON src.unit_of_measure_set_id = tum.unit_of_measure_set_id
 WHERE
-  (
-    tum.unit_of_measure_set_id IS NULL
-    OR src.last_modified_datetime >= '{WATERMARK_DATE}'
-  )
+  src.last_modified_datetime >= '{WATERMARK_DATE}'

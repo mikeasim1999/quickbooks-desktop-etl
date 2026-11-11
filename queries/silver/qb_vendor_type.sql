@@ -26,10 +26,6 @@ WITH source AS (
 SELECT src.*
 FROM source AS src
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_vendor_type AS tvt
-    ON src.vendor_type_id = tvt.vendor_type_id
 WHERE
-  (
-    tvt.vendor_type_id IS NULL
-    OR src.last_modified_datetime >= '{WATERMARK_DATE}'
-  )
+  src.last_modified_datetime >= '{WATERMARK_DATE}'
+  

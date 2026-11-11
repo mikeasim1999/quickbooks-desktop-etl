@@ -38,10 +38,5 @@ WITH source AS (
 SELECT src.*
 FROM source AS src
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_account AS ta
-    ON src.account_id = ta.account_id
 WHERE
-  (
-    ta.account_id IS NULL
-    OR src.last_modified_datetime >= '{WATERMARK_DATE}'
-  )
+    src.last_modified_datetime >= '{WATERMARK_DATE}'

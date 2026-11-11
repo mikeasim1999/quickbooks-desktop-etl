@@ -51,10 +51,5 @@ SELECT
     ,CAST(ssr.loaddatetime AS TIMESTAMP) AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_sales_receipt AS ssr
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_sales_receipt AS tsr
-    ON ssr.TxnID = tsr.sales_receipt_id
 WHERE
-  (
-    tsr.sales_receipt_id IS NULL
-   OR CAST(ssr.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
-  )
+  CAST(ssr.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'

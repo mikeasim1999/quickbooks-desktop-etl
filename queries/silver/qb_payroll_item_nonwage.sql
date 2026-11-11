@@ -30,10 +30,6 @@ WITH source AS (
 SELECT src.*
 FROM source AS src
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_payroll_item_nonwage AS tpinw
-    ON src.payroll_item_nonwage_id = tpinw.payroll_item_nonwage_id
 WHERE
-  (
-    tpinw.payroll_item_nonwage_id IS NULL
-    OR src.last_modified_datetime >= '{WATERMARK_DATE}'
-  )
+  src.last_modified_datetime >= '{WATERMARK_DATE}'
+  

@@ -31,10 +31,6 @@ SELECT
     ,CAST(sc.loaddatetime AS TIMESTAMP) AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_check AS sc
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_check AS tc
-    ON sc.TxnID = tc.check_id
 WHERE
-  (
-    tc.check_id IS NULL
-    OR CAST(sc.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
-  )
+    CAST(sc.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
+  

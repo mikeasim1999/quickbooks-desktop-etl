@@ -54,10 +54,6 @@ SELECT
     ,CAST(se.loaddatetime AS TIMESTAMP) AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_estimate AS se
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_estimate AS te
-    ON se.TxnID = te.estimate_id
 WHERE
-  (
-    te.estimate_id IS NULL
-    OR CAST(se.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
-  )
+  CAST(se.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
+  

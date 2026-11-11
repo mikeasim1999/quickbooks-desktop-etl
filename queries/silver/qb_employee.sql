@@ -45,10 +45,6 @@ WITH source AS (
 SELECT src.*
 FROM source AS src
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_employee AS te
-    ON src.employee_id = te.employee_id
 WHERE
-  (
-    te.employee_id IS NULL
-    OR src.last_modified_datetime >= '{WATERMARK_DATE}'
-  )
+  src.last_modified_datetime >= '{WATERMARK_DATE}'
+  

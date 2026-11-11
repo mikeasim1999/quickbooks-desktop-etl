@@ -28,10 +28,6 @@ SELECT
     ,CAST(stt.loaddatetime AS TIMESTAMP) AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_time_tracking AS stt
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_time_tracking AS ttt
-    ON stt.TxnID = ttt.time_tracking_id
 WHERE
-  (
-    ttt.time_tracking_id IS NULL
-   OR CAST(stt.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
-  )
+    CAST(stt.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
+  

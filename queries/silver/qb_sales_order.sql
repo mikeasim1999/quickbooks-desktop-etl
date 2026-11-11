@@ -54,10 +54,6 @@ SELECT
     ,CAST(sso.loaddatetime AS TIMESTAMP) AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_sales_order AS sso
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_sales_order AS tso
-    ON sso.TxnID = tso.sales_order_id
 WHERE
-  (
-    tso.sales_order_id IS NULL
-   OR CAST(sso.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
-  )
+  CAST(sso.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
+  

@@ -46,10 +46,6 @@ SELECT
     ,CAST(scm.loaddatetime AS TIMESTAMP) AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_credit_memo AS scm
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_credit_memo AS tcm
-    ON scm.TxnID = tcm.credit_memo_id
 WHERE
-  (
-    tcm.credit_memo_id IS NULL
-    OR CAST(scm.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
-  )
+  CAST(scm.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
+  

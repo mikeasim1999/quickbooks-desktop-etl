@@ -20,10 +20,6 @@ SELECT
     ,CAST(svc.loaddatetime AS TIMESTAMP) AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_vendor_credit AS svc
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_vendor_credit AS tvc
-    ON svc.TxnID = tvc.vendor_credit_id
 WHERE
-  (
-    tvc.vendor_credit_id IS NULL
-   OR CAST(svc.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
-  )
+  CAST(svc.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
+  

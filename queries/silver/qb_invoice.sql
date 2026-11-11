@@ -50,10 +50,6 @@ SELECT
     ,CAST(si.loaddatetime AS TIMESTAMP) AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_invoice AS si
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_invoice AS ti
-    ON si.TxnID = ti.invoice_id
 WHERE
-  (
-    ti.invoice_id IS NULL
-    OR CAST(si.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
-  )
+  CAST(si.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
+  

@@ -21,10 +21,5 @@ WITH source AS (
 SELECT src.*
 FROM source AS src
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_ship_method AS tsm
-    ON src.ship_method_id = tsm.ship_method_id
 WHERE
-  (
-    tsm.ship_method_id IS NULL
-    OR src.last_modified_datetime >= '{WATERMARK_DATE}'
-  )
+  src.last_modified_datetime >= '{WATERMARK_DATE}'

@@ -21,10 +21,6 @@ SELECT
     ,CAST(sia.loaddatetime AS TIMESTAMP) AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_inventory_adjustment AS sia
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_inventory_adjustment AS tia
-    ON sia.TxnID = tia.inventory_adjustment_id
 WHERE
-  (
-    tia.inventory_adjustment_id IS NULL
-    OR CAST(sia.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
-  )
+  CAST(sia.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
+  

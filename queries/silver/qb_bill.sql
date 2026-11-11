@@ -32,10 +32,6 @@ SELECT
     ,CAST(sb.loaddatetime AS TIMESTAMP) AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_bill AS sb
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_bill AS tb
-    ON sb.TxnID = tb.bill_id
 WHERE
-  (
-    tb.bill_id IS NULL
-    OR CAST(sb.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
-  )
+    CAST(sb.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
+  

@@ -18,10 +18,6 @@ SELECT
     ,CAST(sccc.loaddatetime AS TIMESTAMP) AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_credit_card_charge AS sccc
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_credit_card_charge AS tccc
-    ON sccc.TxnID = tccc.credit_card_charge_id
 WHERE
-  (
-    tccc.credit_card_charge_id IS NULL
-    OR CAST(sccc.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
-  )
+  CAST(sccc.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
+  

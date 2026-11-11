@@ -29,10 +29,6 @@ WITH source AS (
 SELECT src.*
 FROM source AS src
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_price_level AS tpl
-    ON src.price_level_id = tpl.price_level_id
 WHERE
-  (
-    tpl.price_level_id IS NULL
-    OR src.last_modified_datetime >= '{WATERMARK_DATE}'
-  )
+  src.last_modified_datetime >= '{WATERMARK_DATE}'
+  

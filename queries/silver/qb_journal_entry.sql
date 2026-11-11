@@ -14,10 +14,6 @@ SELECT
     ,CAST(sje.loaddatetime AS TIMESTAMP) AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_journal_entry AS sje
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_job_type AS tje
-    ON sje.TxnID = tje.journal_entry_id
 WHERE
-  (
-    tje.journal_entry_id IS NULL
-    OR CAST(sje.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
-  )
+  CAST(sje.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
+  

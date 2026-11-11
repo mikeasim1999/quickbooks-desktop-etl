@@ -31,10 +31,6 @@ SELECT
     ,CAST(sstpc.loaddatetime AS TIMESTAMP) AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_sales_tax_payment_check AS sstpc
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_sales_tax_payment_check AS tstpc
-    ON sstpc.TxnID = tstpc.sales_tax_payment_check_id
 WHERE
-  (
-    tstpc.sales_tax_payment_check_id IS NULL
-    OR CAST(sstpc.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
-  )
+  CAST(sstpc.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
+  

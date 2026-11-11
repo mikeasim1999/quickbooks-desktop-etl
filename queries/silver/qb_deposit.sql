@@ -18,10 +18,6 @@ SELECT
     ,CAST(sd.loaddatetime AS TIMESTAMP) AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_deposit AS sd
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_customer_type AS td
-    ON sd.TxnID = td.deposit_id
 WHERE
-  (
-    td.deposit_id IS NULL
-    OR CAST(sd.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
-  )
+  CAST(sd.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
+  

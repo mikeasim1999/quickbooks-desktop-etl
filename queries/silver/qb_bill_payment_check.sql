@@ -34,10 +34,6 @@ SELECT
     ,CAST(sbpc.loaddatetime AS TIMESTAMP) AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_bill_payment_check AS sbpc
 -- << INCREMENTAL >> --
-LEFT JOIN {CATALOG}.{TARGET_SCHEMA}.qb_bill_payment_check AS tbpc
-    ON sbpc.TxnID = tbpc.bill_payment_check_id
 WHERE
-  (
-    tbpc.bill_payment_check_id IS NULL
-    OR CAST(sbpc.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
-  )
+  CAST(sbpc.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
+  
