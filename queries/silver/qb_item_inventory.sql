@@ -41,12 +41,17 @@ WITH source AS (
         ,CAST(sii.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sii.TimeModified AS TIMESTAMP) AS last_modified_datetime
         ,CAST(sii.LoadDatetime AS TIMESTAMP) AS load_datetime
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_item_inventory AS sii
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_iteminventory AS sii
 
     UNION ALL
 
     SELECT
-        '0', '0', '0', '0', '0', '0',
+        '0', 
+        '0', 
+        '0', 
+        '0', 
+        '0', 
+        '0',
         'Unassigned', 'Unassigned',
         NULL, NULL,
         TRUE, 0,

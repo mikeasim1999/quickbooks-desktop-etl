@@ -17,10 +17,10 @@ SELECT
 
     ,ssrl.ChildTag AS child_tag
     ,CAST(ssrl.loaddatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_sales_receipt_lines AS ssrl
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_salesreceipt_lines AS ssrl
 -- << INCREMENTAL >> --
 WHERE ssrl.TxnID IN (
     SELECT TxnID 
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_sales_receipt AS sr
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_salesreceipt AS sr
     WHERE CAST(sr.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
 )

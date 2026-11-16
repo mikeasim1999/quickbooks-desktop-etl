@@ -16,7 +16,7 @@ SELECT
     ,CAST(sccc.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(sccc.TimeModified AS TIMESTAMP) AS last_modified_datetime
     ,CAST(sccc.loaddatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_credit_card_charge AS sccc
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_creditcardcharge AS sccc
 -- << INCREMENTAL >> --
 WHERE
   CAST(sccc.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'

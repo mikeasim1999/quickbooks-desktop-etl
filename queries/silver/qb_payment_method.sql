@@ -12,7 +12,7 @@ WITH source AS (
         ,CAST(spm.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(spm.TimeModified AS TIMESTAMP) AS last_modified_datetime
         ,CAST(spm.loaddatetime AS TIMESTAMP) AS load_datetime
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_payment_method AS spm
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_paymentmethod AS spm
 
     UNION ALL
 

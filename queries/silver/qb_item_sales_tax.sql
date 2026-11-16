@@ -17,7 +17,7 @@ WITH source AS (
         ,CAST(sist.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sist.TimeModified AS TIMESTAMP) AS last_modified_datetime
         ,CAST(sist.LoadDatetime AS TIMESTAMP) AS load_datetime
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_item_sales_tax AS sist
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_itemsalestax AS sist
 
     UNION ALL
 

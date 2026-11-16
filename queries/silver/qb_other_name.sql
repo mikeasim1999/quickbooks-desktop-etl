@@ -13,7 +13,7 @@ WITH source AS (
         ,CAST(son.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(son.TimeModified AS TIMESTAMP) AS last_modified_datetime
         ,CAST(son.loaddatetime AS TIMESTAMP) AS load_datetime
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_other_name AS son
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_othername AS son
 
     UNION ALL
 

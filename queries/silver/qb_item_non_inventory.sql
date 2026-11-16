@@ -28,7 +28,7 @@ WITH source AS (
         ,CAST(sini.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sini.TimeModified AS TIMESTAMP) AS last_modified_datetime
         ,CAST(sini.LoadDatetime AS TIMESTAMP) AS load_datetime
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_item_non_inventory AS sini
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_itemnoninventory AS sini
 
     UNION ALL
 

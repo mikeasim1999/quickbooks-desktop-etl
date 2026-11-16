@@ -20,7 +20,7 @@ WITH source AS (
         ,CAST(sid.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sid.TimeModified AS TIMESTAMP) AS last_modified_datetime
         ,CAST(sid.LoadDatetime AS TIMESTAMP) AS load_datetime
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_item_discount AS sid
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_itemdiscount AS sid
 
     UNION ALL
 

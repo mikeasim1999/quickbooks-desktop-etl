@@ -32,7 +32,7 @@ SELECT
     ,CAST(sbpc.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(sbpc.TimeModified AS TIMESTAMP) AS last_modified_datetime
     ,CAST(sbpc.loaddatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_bill_payment_check AS sbpc
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_billpaymentcheck AS sbpc
 -- << INCREMENTAL >> --
 WHERE
   CAST(sbpc.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'

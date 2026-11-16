@@ -15,7 +15,7 @@ WITH source AS (
         ,CAST(spiw.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(spiw.TimeModified AS TIMESTAMP) AS last_modified_datetime
         ,CAST(spiw.loaddatetime AS TIMESTAMP) AS load_datetime
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_payroll_item_wage AS spiw
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_payrollitemwage AS spiw
 
     UNION ALL
 

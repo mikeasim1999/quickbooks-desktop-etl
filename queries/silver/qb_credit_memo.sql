@@ -44,7 +44,7 @@ SELECT
     ,CAST(scm.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(scm.TimeModified AS TIMESTAMP) AS last_modified_datetime
     ,CAST(scm.loaddatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_credit_memo AS scm
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_creditmemo AS scm
 -- << INCREMENTAL >> --
 WHERE
   CAST(scm.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'

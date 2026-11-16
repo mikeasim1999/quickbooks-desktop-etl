@@ -12,7 +12,7 @@ WITH source AS (
         ,CAST(sstc.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sstc.TimeModified AS TIMESTAMP) AS last_modified_datetime
         ,CAST(sstc.loaddatetime AS TIMESTAMP) AS load_datetime
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_sales_tax_code AS sstc
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_salestaxcode AS sstc
 
     UNION ALL
 

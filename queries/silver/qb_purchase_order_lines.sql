@@ -21,10 +21,10 @@ SELECT
 
     ,spol.ChildTag AS child_tag
     ,CAST(spol.loaddatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_purchase_order_lines AS spol
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_purchaseorder_lines AS spol
 -- << INCREMENTAL >> --
 WHERE spol.TxnID IN (
     SELECT TxnID 
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_purchase_order AS po
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_purchaseorder AS po
     WHERE CAST(po.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
 )

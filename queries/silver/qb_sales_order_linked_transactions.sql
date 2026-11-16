@@ -12,10 +12,10 @@ SELECT
 
     ,ssolt.ChildTag AS child_tag
     ,CAST(ssolt.loaddatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_sales_order_linked_transactions AS ssolt
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_salesorder_linked_transactions AS ssolt
 -- << INCREMENTAL >> --
 WHERE ssolt.TxnID IN (
     SELECT TxnID 
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_sales_order AS so
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_salesorder AS so
     WHERE CAST(so.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
 )

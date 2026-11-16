@@ -29,7 +29,7 @@ SELECT
     ,CAST(sstpc.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(sstpc.TimeModified AS TIMESTAMP) AS last_modified_datetime
     ,CAST(sstpc.loaddatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_sales_tax_payment_check AS sstpc
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_salestaxpaymentcheck AS sstpc
 -- << INCREMENTAL >> --
 WHERE
   CAST(sstpc.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'

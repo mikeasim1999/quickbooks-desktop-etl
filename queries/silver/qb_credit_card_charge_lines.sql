@@ -21,10 +21,10 @@ SELECT
 
     ,scccl.ChildTag AS child_tag
     ,CAST(scccl.loaddatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_credit_card_charge_lines AS scccl
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_creditcardcharge_lines AS scccl
 -- << INCREMENTAL >> --
 WHERE scccl.TxnID IN (
     SELECT TxnID 
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_credit_card_charge AS ccc
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_creditcardcharge AS ccc
     WHERE CAST(ccc.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
 )

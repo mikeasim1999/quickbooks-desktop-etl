@@ -23,7 +23,7 @@ SELECT
     ,CAST(srp.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(srp.TimeModified AS TIMESTAMP) AS last_modified_datetime
     ,CAST(srp.LoadDatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_receive_payment AS srp
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_receivepayment AS srp
 -- << INCREMENTAL >> --
 WHERE
     CAST(srp.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'

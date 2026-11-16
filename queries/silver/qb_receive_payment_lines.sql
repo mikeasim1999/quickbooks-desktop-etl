@@ -24,10 +24,10 @@ SELECT
 
     ,NULLIF(srpl.ChildTag, '') AS child_tag
     ,CAST(srpl.LoadDatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_receive_payment_lines AS srpl
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_receivepayment_lines AS srpl
 -- << INCREMENTAL >> --
 WHERE srpl.TxnID IN (
     SELECT TxnID
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_receive_payment AS rp
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_receivepayment AS rp
     WHERE CAST(rp.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
 )

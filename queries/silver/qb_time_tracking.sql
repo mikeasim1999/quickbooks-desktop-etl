@@ -26,7 +26,7 @@ SELECT
     ,CAST(stt.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(stt.TimeModified AS TIMESTAMP) AS last_modified_datetime
     ,CAST(stt.loaddatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_time_tracking AS stt
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_timetracking AS stt
 -- << INCREMENTAL >> --
 WHERE
     CAST(stt.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'

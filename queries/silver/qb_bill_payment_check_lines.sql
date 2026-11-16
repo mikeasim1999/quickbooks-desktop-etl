@@ -24,10 +24,10 @@ SELECT
 
     ,NULLIF(sbpcl.ChildTag, '') AS child_tag
     ,CAST(sbpcl.LoadDatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_bill_payment_check_lines AS sbpcl
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_billpaymentcheck_lines AS sbpcl
 -- << INCREMENTAL >> --
 WHERE sbpcl.TxnID IN (
     SELECT TxnID
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_bill_payment_check
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_billpaymentcheck
     WHERE CAST(TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
 )

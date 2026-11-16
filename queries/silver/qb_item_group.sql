@@ -18,7 +18,7 @@ WITH source AS (
         ,CAST(sig.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sig.TimeModified AS TIMESTAMP) AS last_modified_datetime
         ,CAST(sig.LoadDatetime AS TIMESTAMP) AS load_datetime
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_item_group AS sig
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_itemgroup AS sig
 
     UNION ALL
 

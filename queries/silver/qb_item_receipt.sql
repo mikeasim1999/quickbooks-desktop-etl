@@ -18,7 +18,7 @@ SELECT
     ,CAST(sir.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(sir.TimeModified AS TIMESTAMP) AS last_modified_datetime
     ,CAST(sir.loaddatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_item_receipt AS sir
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_itemreceipt AS sir
 -- << INCREMENTAL >> --
 WHERE
   CAST(sir.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'

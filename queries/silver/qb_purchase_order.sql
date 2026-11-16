@@ -48,7 +48,7 @@ SELECT
     ,CAST(spo.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(spo.TimeModified AS TIMESTAMP) AS last_modified_datetime
     ,CAST(spo.loaddatetime AS TIMESTAMP) AS load_datetime
-FROM analytics_lakehouse_dev.bronze.qb_purchase_order AS spo
+FROM analytics_lakehouse_dev.bronze.qb_purchaseorder AS spo
 -- << INCREMENTAL >> --
 WHERE
     CAST(spo.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'

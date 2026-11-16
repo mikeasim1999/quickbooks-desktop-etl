@@ -9,10 +9,10 @@ SELECT
 
     ,sstpcl.ChildTag AS child_tag
     ,CAST(sstpcl.loaddatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_sales_tax_payment_check_lines AS sstpcl
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_salestaxpaymentcheck_lines AS sstpcl
 -- << INCREMENTAL >> --
 WHERE sstpcl.TxnID IN (
     SELECT TxnID 
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_sales_tax_payment_check AS stpc
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_salestaxpaymentcheck AS stpc
     WHERE CAST(stpc.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
 )

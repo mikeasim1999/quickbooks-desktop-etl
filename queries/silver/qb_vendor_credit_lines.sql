@@ -18,10 +18,10 @@ SELECT
 
     ,svcl.ChildTag AS child_tag
     ,CAST(svcl.loaddatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_vendor_credit_lines AS svcl
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_vendorcredit_lines AS svcl
 -- << INCREMENTAL >> --
 WHERE svcl.TxnID IN (
     SELECT TxnID 
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_vendor_credit AS vc
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_vendorcredit AS vc
     WHERE CAST(vc.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
 )

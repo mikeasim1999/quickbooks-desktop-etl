@@ -52,7 +52,7 @@ SELECT
     ,CAST(sso.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(sso.TimeModified AS TIMESTAMP) AS last_modified_datetime
     ,CAST(sso.loaddatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_sales_order AS sso
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_salesorder AS sso
 -- << INCREMENTAL >> --
 WHERE
   CAST(sso.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'

@@ -22,7 +22,7 @@ WITH source AS (
         ,CAST(sioc.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sioc.TimeModified AS TIMESTAMP) AS last_modified_datetime
         ,CAST(sioc.LoadDatetime AS TIMESTAMP) AS load_datetime
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_item_other_charge AS sioc
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_itemothercharge AS sioc
 
     UNION ALL
 

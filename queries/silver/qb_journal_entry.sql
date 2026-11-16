@@ -12,7 +12,7 @@ SELECT
     ,CAST(sje.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(sje.TimeModified AS TIMESTAMP) AS last_modified_datetime
     ,CAST(sje.loaddatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_journal_entry AS sje
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_journalentry AS sje
 -- << INCREMENTAL >> --
 WHERE
   CAST(sje.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'

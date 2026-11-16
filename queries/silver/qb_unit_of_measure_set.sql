@@ -20,7 +20,7 @@ WITH source AS (
         ,CAST(suom.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(suom.TimeModified AS TIMESTAMP) AS last_modified_datetime
         ,CAST(suom.loaddatetime AS TIMESTAMP) AS load_datetime
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_unit_of_measure_set AS suom
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_unitofmeasureset AS suom
 
     UNION ALL
 

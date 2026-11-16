@@ -19,7 +19,7 @@ SELECT
     ,CAST(sia.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(sia.TimeModified AS TIMESTAMP) AS last_modified_datetime
     ,CAST(sia.loaddatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_inventory_adjustment AS sia
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_inventoryadjustment AS sia
 -- << INCREMENTAL >> --
 WHERE
   CAST(sia.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'

@@ -10,7 +10,7 @@ WITH source AS (
         ,CAST(sjt.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sjt.TimeModified AS TIMESTAMP) AS last_modified_datetime
         ,CAST(sjt.loaddatetime AS TIMESTAMP) AS load_datetime
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_job_type AS sjt
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_jobtype AS sjt
 
     UNION ALL
 

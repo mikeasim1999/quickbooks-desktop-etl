@@ -24,7 +24,7 @@ WITH source AS (
         ,CAST(sifa.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sifa.TimeModified AS TIMESTAMP) AS last_modified_datetime
         ,CAST(sifa.LoadDatetime AS TIMESTAMP) AS load_datetime
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_item_fixed_asset AS sifa
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_itemfixedasset AS sifa
 
     UNION ALL
 

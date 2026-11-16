@@ -1,5 +1,5 @@
 SELECT
-    svclt.TxnID AS linked_sales_order_id
+    svclt.TxnID AS linked_vendor_credit_id
 
     ,CAST(svclt.TxnDate AS DATE) AS transaction_date
 
@@ -12,10 +12,10 @@ SELECT
 
     ,svclt.ChildTag AS child_tag
     ,CAST(svclt.loaddatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_vendor_credit_linked_transactions AS svclt
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_vendorcredit_linked_transactions AS svclt
 -- << INCREMENTAL >> --
 WHERE svclt.TxnID IN (
     SELECT TxnID 
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_vendor_credit AS vc
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_vendorcredit AS vc
     WHERE CAST(vc.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
 )

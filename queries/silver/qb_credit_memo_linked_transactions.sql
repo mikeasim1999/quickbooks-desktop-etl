@@ -12,10 +12,10 @@ SELECT
 
     ,scmlt.ChildTag AS child_tag
     ,CAST(scmlt.loaddatetime AS TIMESTAMP) AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_credit_memo_linked_transactions AS scmlt
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_creditmemo_linked_transactions AS scmlt
 -- << INCREMENTAL >> --
 WHERE scmlt.TxnID IN (
     SELECT TxnID 
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_credit_memo AS cm
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_creditmemo AS cm
     WHERE CAST(cm.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
 )

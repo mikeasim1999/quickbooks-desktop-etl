@@ -16,11 +16,11 @@ SELECT
     ,CASE WHEN sjel.Amount = '' THEN 0 ELSE CAST(sjel.Amount AS DECIMAL(12, 4)) END AS amount
 
     ,sjel.ChildTag AS child_tag
-    ,CAST(sjel.loaddatetime AS TIMESTAMP) AS load_datetime
-FROM analytics_lakehouse_dev.bronze.qb_journal_entry_lines AS sjel
+    ,NOW() AS load_datetime
+FROM analytics_lakehouse_dev.bronze.qb_journalentry_lines AS sjel
 -- << INCREMENTAL >> --
 WHERE sjel.TxnID IN (
     SELECT TxnID 
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_journal_entry AS je
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_journalentry AS je
     WHERE CAST(je.TimeModified AS TIMESTAMP) >= '{WATERMARK_DATE}'
 )

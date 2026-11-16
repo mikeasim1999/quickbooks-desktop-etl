@@ -12,7 +12,7 @@ WITH source AS (
         ,CAST(sct.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sct.TimeModified AS TIMESTAMP) AS last_modified_datetime
         ,CAST(sct.loaddatetime AS TIMESTAMP) AS load_datetime
-    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_customer_type AS sct
+    FROM {CATALOG}.{SOURCE_SCHEMA}.qb_customertype AS sct
 
     UNION ALL
 
