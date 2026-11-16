@@ -19,7 +19,7 @@ WITH source AS (
         ,NULLIF(suom.EditSequence, '') AS edit_sequence
         ,CAST(suom.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(suom.TimeModified AS TIMESTAMP) AS last_modified_datetime
-        ,CAST(suom.loaddatetime AS TIMESTAMP) AS load_datetime
+        ,NOW() AS load_datetime
     FROM {CATALOG}.{SOURCE_SCHEMA}.qb_unitofmeasureset AS suom
 
     UNION ALL

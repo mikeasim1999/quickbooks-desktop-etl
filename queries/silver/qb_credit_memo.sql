@@ -43,7 +43,7 @@ SELECT
     ,NULLIF(scm.EditSequence, '') AS edit_sequence
     ,CAST(scm.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(scm.TimeModified AS TIMESTAMP) AS last_modified_datetime
-    ,CAST(scm.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_creditmemo AS scm
 -- << INCREMENTAL >> --
 WHERE

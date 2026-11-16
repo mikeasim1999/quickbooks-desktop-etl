@@ -75,7 +75,7 @@ SELECT
     ,CASE WHEN sel.TotalAmount = '' THEN 0 ELSE CAST(sel.TotalAmount AS DECIMAL(12, 4)) END AS total_amount
 
     ,sel.ChildTag AS child_tag
-    ,CAST(sel.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_estimate_lines AS sel
 -- << INCREMENTAL >> --
 WHERE sel.TxnID IN (

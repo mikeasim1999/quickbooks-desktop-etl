@@ -19,7 +19,7 @@ SELECT
     ,CASE WHEN ssol.Invoiced = '' THEN 0 ELSE CAST(ssol.Invoiced AS DECIMAL(12, 4)) END AS invoiced_quantity
 
     ,ssol.ChildTag AS child_tag
-    ,CAST(ssol.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_salesorder_lines AS ssol
 -- << INCREMENTAL >> --
 WHERE ssol.TxnID IN (

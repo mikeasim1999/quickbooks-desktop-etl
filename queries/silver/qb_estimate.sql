@@ -51,7 +51,7 @@ SELECT
     ,se.EditSequence AS edit_sequence
     ,CAST(se.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(se.TimeModified AS TIMESTAMP) AS last_modified_datetime
-    ,CAST(se.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_estimate AS se
 -- << INCREMENTAL >> --
 WHERE

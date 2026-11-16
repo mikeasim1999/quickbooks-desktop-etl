@@ -12,7 +12,7 @@ WITH source AS (
         ,NULLIF(son.EditSequence, '') AS edit_sequence
         ,CAST(son.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(son.TimeModified AS TIMESTAMP) AS last_modified_datetime
-        ,CAST(son.loaddatetime AS TIMESTAMP) AS load_datetime
+        ,NOW() AS load_datetime
     FROM {CATALOG}.{SOURCE_SCHEMA}.qb_othername AS son
 
     UNION ALL

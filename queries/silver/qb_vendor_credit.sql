@@ -17,7 +17,7 @@ SELECT
     ,NULLIF(svc.EditSequence, '') AS edit_sequence
     ,CAST(svc.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(svc.TimeModified AS TIMESTAMP) AS last_modified_datetime
-    ,CAST(svc.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_vendorcredit AS svc
 -- << INCREMENTAL >> --
 WHERE

@@ -23,7 +23,7 @@ WITH source AS (
         ,NULLIF(sa.EditSequence, '') AS edit_sequence
         ,CAST(sa.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sa.TimeModified AS TIMESTAMP) AS last_modified_datetime
-        ,CAST(sa.LoadDatetime AS TIMESTAMP) AS load_datetime
+        ,NOW() AS load_datetime
     FROM {CATALOG}.{SOURCE_SCHEMA}.qb_account AS sa
 
     UNION ALL

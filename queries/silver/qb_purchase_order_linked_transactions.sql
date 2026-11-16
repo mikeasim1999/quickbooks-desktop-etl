@@ -11,7 +11,7 @@ SELECT
     ,CASE WHEN spolt.Amount = '' THEN 0 ELSE CAST(spolt.Amount AS DECIMAL(12, 4)) END AS amount
 
     ,spolt.ChildTag AS child_tag
-    ,CAST(spolt.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_purchaseorder_linked_transactions AS spolt
 -- << INCREMENTAL >> --
 WHERE spolt.TxnID IN (

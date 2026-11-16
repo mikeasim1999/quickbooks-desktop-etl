@@ -8,7 +8,7 @@ SELECT
     ,CASE WHEN sstpcl.Amount = '' THEN 0 ELSE CAST(sstpcl.Amount AS DECIMAL(12, 4)) END AS amount
 
     ,sstpcl.ChildTag AS child_tag
-    ,CAST(sstpcl.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_salestaxpaymentcheck_lines AS sstpcl
 -- << INCREMENTAL >> --
 WHERE sstpcl.TxnID IN (

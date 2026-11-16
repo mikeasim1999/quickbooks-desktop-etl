@@ -16,7 +16,7 @@ SELECT
     ,CASE WHEN scml.Quantity = '' THEN 0 ELSE CAST(scml.Quantity AS DECIMAL(12, 4)) END AS quantity
 
     ,scml.ChildTag AS child_tag
-    ,CAST(scml.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_creditmemo_lines AS scml
 -- << INCREMENTAL >> --
 WHERE scml.TxnID IN (

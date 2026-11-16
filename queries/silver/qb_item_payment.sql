@@ -14,7 +14,7 @@ WITH source AS (
         ,NULLIF(sip.EditSequence, '') AS edit_sequence
         ,CAST(sip.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sip.TimeModified AS TIMESTAMP) AS last_modified_datetime
-        ,CAST(sip.LoadDatetime AS TIMESTAMP) AS load_datetime
+        ,NOW() AS load_datetime
     FROM {CATALOG}.{SOURCE_SCHEMA}.qb_itempayment AS sip
 
     UNION ALL

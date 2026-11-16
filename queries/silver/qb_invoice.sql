@@ -47,7 +47,7 @@ SELECT
     ,NULLIF(si.EditSequence, '') AS edit_sequence
     ,CAST(si.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(si.TimeModified AS TIMESTAMP) AS last_modified_datetime
-    ,CAST(si.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_invoice AS si
 -- << INCREMENTAL >> --
 WHERE

@@ -81,7 +81,7 @@ SELECT
     ,CASE WHEN sil.TotalAmount = '' THEN 0 ELSE CAST(sil.TotalAmount AS DECIMAL(12, 4)) END AS total_amount
 
     ,sil.ChildTag AS child_tag
-    ,CAST(sil.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_invoice_lines AS sil
 -- << INCREMENTAL >> --
 WHERE sil.TxnID IN (

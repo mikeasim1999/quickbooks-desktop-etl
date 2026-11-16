@@ -28,7 +28,7 @@ SELECT
     ,NULLIF(sstpc.EditSequence, '') AS edit_sequence
     ,CAST(sstpc.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(sstpc.TimeModified AS TIMESTAMP) AS last_modified_datetime
-    ,CAST(sstpc.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_salestaxpaymentcheck AS sstpc
 -- << INCREMENTAL >> --
 WHERE

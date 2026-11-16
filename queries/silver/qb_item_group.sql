@@ -17,7 +17,7 @@ WITH source AS (
         ,NULLIF(sig.EditSequence, '') AS edit_sequence
         ,CAST(sig.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sig.TimeModified AS TIMESTAMP) AS last_modified_datetime
-        ,CAST(sig.LoadDatetime AS TIMESTAMP) AS load_datetime
+        ,NOW() AS load_datetime
     FROM {CATALOG}.{SOURCE_SCHEMA}.qb_itemgroup AS sig
 
     UNION ALL

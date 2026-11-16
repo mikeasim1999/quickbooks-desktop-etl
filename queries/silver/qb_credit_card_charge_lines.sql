@@ -20,7 +20,7 @@ SELECT
     ,CASE WHEN scccl.Quantity = '' THEN 0 ELSE CAST(scccl.Quantity AS DECIMAL(12, 4)) END AS quantity
 
     ,scccl.ChildTag AS child_tag
-    ,CAST(scccl.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_creditcardcharge_lines AS scccl
 -- << INCREMENTAL >> --
 WHERE scccl.TxnID IN (

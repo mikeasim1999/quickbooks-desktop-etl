@@ -20,7 +20,7 @@ SELECT
     ,CASE WHEN spol.ReceivedQuantity = '' THEN 0 ELSE CAST(spol.ReceivedQuantity AS DECIMAL(12, 4)) END AS received_quantity
 
     ,spol.ChildTag AS child_tag
-    ,CAST(spol.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_purchaseorder_lines AS spol
 -- << INCREMENTAL >> --
 WHERE spol.TxnID IN (

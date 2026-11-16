@@ -15,7 +15,7 @@ SELECT
     ,NULLIF(sd.EditSequence, '') AS edit_sequence
     ,CAST(sd.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(sd.TimeModified AS TIMESTAMP) AS last_modified_datetime
-    ,CAST(sd.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_deposit AS sd
 -- << INCREMENTAL >> --
 WHERE

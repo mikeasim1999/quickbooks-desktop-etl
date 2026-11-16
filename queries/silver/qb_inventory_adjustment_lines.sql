@@ -9,7 +9,7 @@ SELECT
     ,CASE WHEN sial.ValueDifference = '' THEN 0 ELSE CAST(sial.ValueDifference AS DECIMAL(12, 4)) END AS value_difference
 
     ,sial.ChildTag AS child_tag
-    ,CAST(sial.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_inventory_adjustment_lines AS sial
 -- << INCREMENTAL >> --
 WHERE sial.TxnID IN (

@@ -16,7 +16,7 @@ SELECT
     ,CASE WHEN ssrl.Quantity = '' THEN 0 ELSE CAST(ssrl.Quantity AS DECIMAL(12, 4)) END AS quantity
 
     ,ssrl.ChildTag AS child_tag
-    ,CAST(ssrl.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_salesreceipt_lines AS ssrl
 -- << INCREMENTAL >> --
 WHERE ssrl.TxnID IN (

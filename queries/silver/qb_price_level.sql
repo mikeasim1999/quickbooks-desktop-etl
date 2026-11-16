@@ -14,7 +14,7 @@ WITH source AS (
         ,NULLIF(spl.EditSequence, '') AS edit_sequence
         ,CAST(spl.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(spl.TimeModified AS TIMESTAMP) AS last_modified_datetime
-        ,CAST(spl.loaddatetime AS TIMESTAMP) AS load_datetime
+        ,NOW() AS load_datetime
     FROM {CATALOG}.{SOURCE_SCHEMA}.qb_pricelevel AS spl
 
     UNION ALL

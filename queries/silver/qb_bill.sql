@@ -29,7 +29,7 @@ SELECT
     ,NULLIF(sb.EditSequence, '') AS edit_sequence
     ,CAST(sb.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(sb.TimeModified AS TIMESTAMP) AS last_modified_datetime
-    ,CAST(sb.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_bill AS sb
 -- << INCREMENTAL >> --
 WHERE

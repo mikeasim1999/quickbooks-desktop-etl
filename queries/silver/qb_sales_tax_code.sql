@@ -11,7 +11,7 @@ WITH source AS (
         ,NULLIF(sstc.EditSequence, '') AS edit_sequence
         ,CAST(sstc.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sstc.TimeModified AS TIMESTAMP) AS last_modified_datetime
-        ,CAST(sstc.loaddatetime AS TIMESTAMP) AS load_datetime
+        ,NOW() AS load_datetime
     FROM {CATALOG}.{SOURCE_SCHEMA}.qb_salestaxcode AS sstc
 
     UNION ALL

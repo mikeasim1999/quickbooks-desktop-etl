@@ -23,7 +23,7 @@ SELECT
     ,CASE WHEN sbpcl.BalanceRemaining = '' THEN 0 ELSE CAST(sbpcl.BalanceRemaining AS DECIMAL(12, 4)) END AS remaining_balance
 
     ,NULLIF(sbpcl.ChildTag, '') AS child_tag
-    ,CAST(sbpcl.LoadDatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_billpaymentcheck_lines AS sbpcl
 -- << INCREMENTAL >> --
 WHERE sbpcl.TxnID IN (

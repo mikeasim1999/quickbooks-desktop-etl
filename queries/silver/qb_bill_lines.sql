@@ -21,7 +21,7 @@ SELECT
     ,CASE WHEN sbl.Quantity = '' THEN 0 ELSE CAST(sbl.Quantity AS DECIMAL(12,4)) END AS quantity
 
     ,sbl.ChildTag AS xml_child_tag
-    ,sbl.loaddatetime AS load_datetime
+    ,NOW()  AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_bill_lines AS sbl
 -- << INCREMENTAL >> --
 WHERE sbl.TxnID IN (

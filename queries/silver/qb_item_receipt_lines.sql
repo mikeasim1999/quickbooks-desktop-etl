@@ -18,7 +18,7 @@ SELECT
     ,CASE WHEN irl.Quantity = '' THEN 0 ELSE CAST(irl.Quantity AS DECIMAL(12, 4)) END AS quantity
 
     ,irl.ChildTag AS child_tag
-    ,CAST(irl.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_itemreceipt_lines AS irl
 -- << INCREMENTAL >> --
 WHERE irl.TxnID IN (

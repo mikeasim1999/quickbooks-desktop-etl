@@ -12,7 +12,7 @@ WITH source AS (
         ,NULLIF(svt.EditSequence, '') AS edit_sequence
         ,CAST(svt.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(svt.TimeModified AS TIMESTAMP) AS last_modified_datetime
-        ,CAST(svt.loaddatetime AS TIMESTAMP) AS load_datetime
+        ,NOW() AS load_datetime
     FROM {CATALOG}.{SOURCE_SCHEMA}.qb_vendortype AS svt
 
     UNION ALL

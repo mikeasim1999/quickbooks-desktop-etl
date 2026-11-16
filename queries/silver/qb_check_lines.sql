@@ -25,7 +25,7 @@ SELECT
     ,CASE WHEN scl.Quantity = '' THEN 0 ELSE CAST(scl.Quantity AS DECIMAL(12, 4)) END AS quantity
 
     ,scl.ChildTag AS child_tag
-    ,CAST(scl.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_check_lines AS scl
 -- << INCREMENTAL >> --
 WHERE scl.TxnID IN (

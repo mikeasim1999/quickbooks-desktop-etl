@@ -11,7 +11,7 @@ WITH source AS (
         ,NULLIF(sis.EditSequence, '') AS edit_sequence
         ,CAST(sis.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sis.TimeModified AS TIMESTAMP) AS last_modified_datetime
-        ,CAST(sis.LoadDatetime AS TIMESTAMP) AS load_datetime
+        ,NOW() AS load_datetime
     FROM {CATALOG}.{SOURCE_SCHEMA}.qb_itemsubtotal AS sis
 
     UNION ALL

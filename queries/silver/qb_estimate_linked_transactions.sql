@@ -11,7 +11,7 @@ SELECT
     ,CASE WHEN selt.Amount = '' THEN 0 ELSE CAST(selt.Amount AS DECIMAL(12, 4)) END AS amount
 
     ,selt.ChildTag AS child_tag
-    ,CAST(selt.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_estimate_linked_transactions AS selt
 -- << INCREMENTAL >> --
 WHERE selt.TxnID IN (

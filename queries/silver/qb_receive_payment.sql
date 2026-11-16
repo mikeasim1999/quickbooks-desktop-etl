@@ -22,7 +22,7 @@ SELECT
     ,NULLIF(srp.EditSequence, '') AS edit_sequence
     ,CAST(srp.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(srp.TimeModified AS TIMESTAMP) AS last_modified_datetime
-    ,CAST(srp.LoadDatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_receivepayment AS srp
 -- << INCREMENTAL >> --
 WHERE

@@ -19,7 +19,7 @@ WITH source AS (
         ,NULLIF(sid.EditSequence, '') AS edit_sequence
         ,CAST(sid.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sid.TimeModified AS TIMESTAMP) AS last_modified_datetime
-        ,CAST(sid.LoadDatetime AS TIMESTAMP) AS load_datetime
+        ,NOW() AS load_datetime
     FROM {CATALOG}.{SOURCE_SCHEMA}.qb_itemdiscount AS sid
 
     UNION ALL

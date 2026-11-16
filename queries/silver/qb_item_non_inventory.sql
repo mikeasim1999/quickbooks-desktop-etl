@@ -27,7 +27,7 @@ WITH source AS (
         ,NULLIF(sini.EditSequence, '') AS edit_sequence
         ,CAST(sini.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sini.TimeModified AS TIMESTAMP) AS last_modified_datetime
-        ,CAST(sini.LoadDatetime AS TIMESTAMP) AS load_datetime
+        ,NOW() AS load_datetime
     FROM {CATALOG}.{SOURCE_SCHEMA}.qb_itemnoninventory AS sini
 
     UNION ALL

@@ -21,7 +21,7 @@ WITH source AS (
         ,NULLIF(sioc.EditSequence, '') AS edit_sequence
         ,CAST(sioc.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sioc.TimeModified AS TIMESTAMP) AS last_modified_datetime
-        ,CAST(sioc.LoadDatetime AS TIMESTAMP) AS load_datetime
+        ,NOW() AS load_datetime
     FROM {CATALOG}.{SOURCE_SCHEMA}.qb_itemothercharge AS sioc
 
     UNION ALL

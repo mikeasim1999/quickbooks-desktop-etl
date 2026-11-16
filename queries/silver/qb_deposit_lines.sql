@@ -20,7 +20,7 @@ SELECT
     ,CASE WHEN sdl.Amount = '' THEN 0 ELSE CAST(sdl.Amount AS DECIMAL(12, 4)) END AS amount
 
     ,sdl.ChildTag AS child_tag
-    ,CAST(sdl.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_deposit_lines AS sdl
 -- << INCREMENTAL >> --
 WHERE sdl.TxnID IN (

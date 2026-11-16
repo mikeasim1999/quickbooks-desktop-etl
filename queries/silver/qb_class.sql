@@ -8,7 +8,7 @@ WITH source AS (
         ,NULLIF(sc.EditSequence, '') AS edit_sequence
         ,CAST(sc.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sc.TimeModified AS TIMESTAMP) AS last_modified_datetime
-        ,CAST(sc.loaddatetime AS TIMESTAMP) AS load_datetime
+        ,NOW() AS load_datetime
     FROM {CATALOG}.{SOURCE_SCHEMA}.qb_class AS sc
 
     UNION ALL

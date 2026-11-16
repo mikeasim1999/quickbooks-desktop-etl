@@ -17,7 +17,7 @@ SELECT
     ,NULLIF(sir.EditSequence, '') AS edit_sequence
     ,CAST(sir.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(sir.TimeModified AS TIMESTAMP) AS last_modified_datetime
-    ,CAST(sir.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_itemreceipt AS sir
 -- << INCREMENTAL >> --
 WHERE

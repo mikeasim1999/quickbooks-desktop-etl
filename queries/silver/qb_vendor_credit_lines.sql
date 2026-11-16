@@ -17,7 +17,7 @@ SELECT
     ,CASE WHEN svcl.Amount = '' THEN 0 ELSE CAST(svcl.Amount AS DECIMAL(12, 4)) END AS amount
 
     ,svcl.ChildTag AS child_tag
-    ,CAST(svcl.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_vendorcredit_lines AS svcl
 -- << INCREMENTAL >> --
 WHERE svcl.TxnID IN (

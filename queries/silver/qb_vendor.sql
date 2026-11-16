@@ -63,7 +63,7 @@ WITH source AS (
         ,NULLIF(sv.EditSequence, '') AS edit_sequence
         ,CAST(sv.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sv.TimeModified AS TIMESTAMP) AS last_modified_datetime
-        ,CAST(sv.loaddatetime AS TIMESTAMP) AS load_datetime
+        ,NOW() AS load_datetime
     FROM {CATALOG}.{SOURCE_SCHEMA}.qb_vendor AS sv
 
     UNION ALL

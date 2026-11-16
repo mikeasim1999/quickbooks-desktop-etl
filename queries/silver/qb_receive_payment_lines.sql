@@ -23,7 +23,7 @@ SELECT
     ,CASE WHEN srpl.BalanceRemaining = '' THEN 0 ELSE CAST(srpl.BalanceRemaining AS DECIMAL(12, 4)) END AS remaining_balance
 
     ,NULLIF(srpl.ChildTag, '') AS child_tag
-    ,CAST(srpl.LoadDatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_receivepayment_lines AS srpl
 -- << INCREMENTAL >> --
 WHERE srpl.TxnID IN (

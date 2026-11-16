@@ -11,7 +11,7 @@ WITH source AS (
         ,NULLIF(sct.EditSequence, '') AS edit_sequence
         ,CAST(sct.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(sct.TimeModified AS TIMESTAMP) AS last_modified_datetime
-        ,CAST(sct.loaddatetime AS TIMESTAMP) AS load_datetime
+        ,NOW() AS load_datetime
     FROM {CATALOG}.{SOURCE_SCHEMA}.qb_customertype AS sct
 
     UNION ALL

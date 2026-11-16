@@ -47,7 +47,7 @@ SELECT
     ,NULLIF(spo.EditSequence, '') AS edit_sequence
     ,CAST(spo.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(spo.TimeModified AS TIMESTAMP) AS last_modified_datetime
-    ,CAST(spo.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM analytics_lakehouse_dev.bronze.qb_purchaseorder AS spo
 -- << INCREMENTAL >> --
 WHERE

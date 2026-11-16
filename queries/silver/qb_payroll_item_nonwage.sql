@@ -14,7 +14,7 @@ WITH source AS (
         ,NULLIF(spinw.EditSequence, '') AS edit_sequence
         ,CAST(spinw.TimeCreated AS TIMESTAMP) AS created_datetime
         ,CAST(spinw.TimeModified AS TIMESTAMP) AS last_modified_datetime
-        ,CAST(spinw.loaddatetime AS TIMESTAMP) AS load_datetime
+        ,NOW() AS load_datetime
     FROM {CATALOG}.{SOURCE_SCHEMA}.qb_payrollitemnonwage AS spinw
 
     UNION ALL

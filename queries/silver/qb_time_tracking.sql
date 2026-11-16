@@ -25,7 +25,7 @@ SELECT
     ,NULLIF(stt.EditSequence, '') AS edit_sequence
     ,CAST(stt.TimeCreated AS TIMESTAMP) AS created_datetime
     ,CAST(stt.TimeModified AS TIMESTAMP) AS last_modified_datetime
-    ,CAST(stt.loaddatetime AS TIMESTAMP) AS load_datetime
+    ,NOW() AS load_datetime
 FROM {CATALOG}.{SOURCE_SCHEMA}.qb_timetracking AS stt
 -- << INCREMENTAL >> --
 WHERE
