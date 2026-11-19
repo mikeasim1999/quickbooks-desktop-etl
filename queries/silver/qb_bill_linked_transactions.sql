@@ -1,5 +1,7 @@
 SELECT
-    sblt.TxnID AS linked_bill_id
+    sblt.LinkedTxn_TxnID AS linked_transaction_id
+    ,sblt.TxnID AS transaction_id
+    
 
     ,CAST(sblt.TxnDate AS DATE) AS transaction_date
 

@@ -1,5 +1,6 @@
 SELECT
-    selt.TxnID AS linked_estimate_id
+    selt.LinkedTxn_TxnID AS linked_transaction_id
+    ,selt.TxnID AS transaction_id
 
     ,CAST(selt.TxnDate AS DATE) AS transaction_date
 

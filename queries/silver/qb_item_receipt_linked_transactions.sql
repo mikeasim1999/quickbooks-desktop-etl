@@ -1,5 +1,6 @@
 SELECT
-    sirlt.TxnID AS linked_item_receipt_id
+    sirlt.LinkedTxn_TxnID AS linked_transaction_id
+    ,sirlt.TxnID AS transaction_id
 
     ,CAST(sirlt.TxnDate AS DATE) AS transaction_date
 

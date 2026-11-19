@@ -1,5 +1,6 @@
 SELECT
-    svclt.TxnID AS linked_vendor_credit_id
+    svclt.LinkedTxn_TxnID AS linked_transaction_id
+    ,svclt.TxnID AS transaction_id
 
     ,CAST(svclt.TxnDate AS DATE) AS transaction_date
 

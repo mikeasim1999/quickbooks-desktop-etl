@@ -1,5 +1,6 @@
 SELECT
-    silt.TxnID AS linked_invoice_id
+    silt.LinkedTxn_TxnID AS linked_transaction_id
+    ,silt.TxnID AS transaction_id
 
     ,CAST(silt.TxnDate AS DATE) AS transaction_date
 

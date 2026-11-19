@@ -1,5 +1,6 @@
 SELECT
-    scmlt.TxnID AS linked_credit_memo_id
+    scmlt.LinkedTxn_TxnID AS linked_transaction_id
+    ,scmlt.TxnID AS transaction_id
 
     ,CAST(scmlt.TxnDate AS DATE) AS transaction_date
 

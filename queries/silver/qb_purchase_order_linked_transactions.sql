@@ -1,5 +1,6 @@
 SELECT
-    spolt.TxnID AS linked_purchase_order_id
+    spolt.LinkedTxn_TxnID AS linked_transaction_id
+    ,spolt.TxnID AS transaction_id
 
     ,CAST(spolt.TxnDate AS DATE) AS transaction_date
 

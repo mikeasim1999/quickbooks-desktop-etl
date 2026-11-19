@@ -1,5 +1,6 @@
 SELECT
-    sclt.TxnID AS linked_check_id
+    sclt.LinkedTxn_TxnID AS linked_transaction_id
+    ,sclt.TxnID AS transaction_id
 
     ,CAST(sclt.TxnDate AS DATE) AS transaction_date
 
