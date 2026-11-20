@@ -10,7 +10,7 @@ SELECT
 
     ,sial.ChildTag AS child_tag
     ,NOW() AS load_datetime
-FROM {CATALOG}.{SOURCE_SCHEMA}.qb_inventory_adjustment_lines AS sial
+FROM {CATALOG}.{SOURCE_SCHEMA}.qb_inventoryadjustment_lines AS sial
 -- << INCREMENTAL >> --
 WHERE sial.TxnID IN (
     SELECT TxnID 
